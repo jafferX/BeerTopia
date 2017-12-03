@@ -27,7 +27,7 @@ autom4te.cache/
 tarballs/
 test-results/
 Thumbs.db
-apiKey.cs
+API/apiKey.cs
 
 # Mac bundle stuff
 *.dmg
