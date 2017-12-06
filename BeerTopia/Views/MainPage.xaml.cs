@@ -2,7 +2,7 @@
 
 namespace BeerTopia.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : MasterDetailPage
     {
         public MainPage()
         {

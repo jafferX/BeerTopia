@@ -1,6 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" prism:ViewModelLocator.AutowireViewModel="True" x:Class="BeerTopia.Views.MainPage" Title="MainPage">
-	<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-		<Label Text="{Binding Title}" />
-	</StackLayout>
-</ContentPage>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" prism:ViewModelLocator.AutowireViewModel="True" x:Class="BeerTopia.Views.MainPage" Title="MainPage">
+	<MasterDetailPage.Master>
+		<ContentPage Title="Menu">
+			<ContentPage.Icon>
+				<OnPlatform x:TypeArguments="FileImageSource">
+					<OnPlatform.Platforms>
+						<On Platform="iOS, Android, macOS" Value="hamburger.png" />
+					</OnPlatform.Platforms>
+				</OnPlatform>
+			</ContentPage.Icon>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="200" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<StackLayout BackgroundColor="{StaticResource PrimaryDark}"
+                             Padding="20">
+					<Label Text="{Binding UserName}"
+                           TextColor="{StaticResource NavigationText}"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="EndAndExpand"/>
+				</StackLayout>
+				<StackLayout Grid.Row="1">
+					<Button Text="Breweries"
+                            Command="{Binding NavigateCommand}"
+                            CommandParameter="BreweriesPage"/>
+					<Button Text="Add Brewer"
+                            Command="{Binding NavigateCommand}"
+                            CommandParameter="AddBrewery" />
+					<Button Text="Add Beer"
+                            Command="{Binding NavigateCommand}"
+                            CommandParameter="AddBeer" />
+				</StackLayout>
+			</Grid>
+		</ContentPage>
+	</MasterDetailPage.Master>
+</MasterDetailPage>
+

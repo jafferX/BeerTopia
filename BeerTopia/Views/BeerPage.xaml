@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeerTopia.Views.BeerPage">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<On Platform="iOS" Value="0,20,0,0" />
+		</OnPlatform>
+	</ContentPage.Padding>
+	<ScrollView>
+		<StackLayout BackgroundColor="White"
+                     Padding="20">
+			<Label Text="{Binding Model.Name}"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+			<Label Text="{Binding Model.Style}" />
+
+			<BoxView BackgroundColor="{StaticResource PrimaryDark}"
+                     HeightRequest="1" />
+
+			<Label Text="{Binding Model.Description}"
+                   LineBreakMode="WordWrap" />
+		</StackLayout>
+	</ScrollView>
+
+</ContentView>
