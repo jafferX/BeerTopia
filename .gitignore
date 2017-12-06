@@ -28,7 +28,7 @@ tarballs/
 test-results/
 Thumbs.db
 BeerTopia/API/apiKey.cs
-
+.vs/
 # Mac bundle stuff
 *.dmg
 *.app
