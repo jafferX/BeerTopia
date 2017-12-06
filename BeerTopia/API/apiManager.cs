@@ -12,44 +12,12 @@ namespace BeerTopia.API
 {
     class ApiManager
     {
-        private string apiURL = "http://api.brewerydb.com/v2/";
+        public const string apiURL = "http://api.brewerydb.com/v2/";
 
-        HttpClient StartHTTP()
+       public HttpClient StartHTTP()
         {
             HttpClient client = new HttpClient();
             return client;
-        }
-
-        async void GetSampleBeers (ObservableCollection<Beer> observableCollection)
-        {
-            HttpClient client = StartHTTP();
-            var uri = new Uri(
-                string.Format(
-                    $"{apiURL}beers?key={ApiKey.BeerKey}&styleId=15"));
-            var response = await client.GetAsync(uri);
-            Beer beerData = null;
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                beerData = null;
-            }
-            observableCollection.Add(beerData);
-        }
-
-        async void GetBeerByName(ObservableCollection<Beer> observableCollection, string userInput)
-        {
-            HttpClient client = StartHTTP();
-            var uri = new Uri(
-                string.Format(
-                    $"{apiURL}beers?key={ApiKey.BeerKey}&name={userInput}"));
-            var response = await client.GetAsync(uri);
-            Beer beerData = null;
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                beerData = null;
-            }
-            observableCollection.Add(beerData);
         }
 
     }
