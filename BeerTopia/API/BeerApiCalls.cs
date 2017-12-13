@@ -16,7 +16,7 @@ namespace BeerTopia.API
     {
         ApiManager httpCall;
 
-        async void GetSampleBeers(ObservableCollection<BeerDetailsModel> observableCollection)
+        async void GetSampleBeers(ObservableCollection<Datum> observableCollection)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
@@ -27,12 +27,16 @@ namespace BeerTopia.API
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                beerData = null;
+                beerData = BeerDetailsModel.FromJson(content);
             }
-            observableCollection.Add(beerData);
+            for (int i = 0; i < beerData.Data.Length; i++)
+            {
+                observableCollection.Add(beerData.Data[i]);
+            }
+            
         }
 
-        async void GetBeerByName(ObservableCollection<BeerDetailsModel> observableCollection, string userInput)
+        async void GetBeerByName(ObservableCollection<Datum> observableCollection, string userInput)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
@@ -43,9 +47,13 @@ namespace BeerTopia.API
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                beerData = null;
+                beerData = BeerDetailsModel.FromJson(content);
             }
-            observableCollection.Add(beerData);
+            for(int i = 0; i < beerData.Data.Length;i++)
+            {
+                observableCollection.Add(beerData.Data[i]);
+            }
+            
         }
 
 

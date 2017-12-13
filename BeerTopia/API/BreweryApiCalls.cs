@@ -14,36 +14,43 @@ namespace BeerTopia.API
     {
         ApiManager httpCall;
 
-        async void GetSampleBreweryList(ObservableCollection<Brewery> collection)
+        async void GetSampleBreweryList(ObservableCollection<DatumB> collection)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
                 string.Format(
                      $"{ApiManager.apiURL}breweries?key={ApiKey.BeerKey}&established=1992"));
             var response = await client.GetAsync(uri);
-            Brewery brewData = null;
+            Breweries brewData = null;
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                brewData = null; //from json function here
+                brewData = Breweries.FromJson(content); //from json function here
             }
-            collection.Add(brewData);
+            for (int i = 0; i < brewData.Data.Length; i++)
+            {
+                collection.Add(brewData.Data[i]);
+            }
         }
 
-        async void GetBreweryList (ObservableCollection<Brewery> collection, string breweryID)
+        async void GetBreweryList (ObservableCollection<DatumB> collection, string breweryID)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
                 string.Format(
                     $"{ApiManager.apiURL}brewery/{breweryID}?key={ApiKey.BeerKey}"));
             var response = await client.GetAsync(uri);
-            Brewery brewData = null;
+            Breweries brewData = null;
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                brewData = null; //from json function goes here
+                brewData = Breweries.FromJson(content); //from json function goes here
             }
-            collection.Add(brewData);
+            for (int i = 0; i < brewData.Data.Length; i++)
+            {
+                collection.Add(brewData.Data[i]);
+            }
+           // collection.Add(brewData);
         }
     }
 }
