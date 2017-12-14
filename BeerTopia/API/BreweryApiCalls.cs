@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using BeerTopia.Models;
-using System.Collections.Generic;
+
 using System.Collections.ObjectModel;
 
 namespace BeerTopia.API
 {
     public class BreweryApiCalls
     {
-        ApiManager httpCall;
+        ApiManager httpCall = new ApiManager();
 
         public async void GetSampleBreweryList(ObservableCollection<DatumB> collection)
         {

@@ -40,7 +40,7 @@ namespace BeerTopia.ViewModels
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
 			//TODO: Add/Fix Api call here
-			//breweryCaller.GetSampleBreweryList(Breweries);
+			breweryCaller.GetSampleBreweryList(Breweries);
 		}
 
 		private async void OnBrewerySelectedCommandExecuted(DatumB brewer)
