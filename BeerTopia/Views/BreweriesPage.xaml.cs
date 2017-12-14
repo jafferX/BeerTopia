@@ -10,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace BeerTopia.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BeerPage : ContentPage
+	public partial class BreweriesPage : ContentPage
 	{
-		public BeerPage()
+		public BreweriesPage ()
 		{
-			InitializeComponent();
+			InitializeComponent ();
 		}
 	}
 }

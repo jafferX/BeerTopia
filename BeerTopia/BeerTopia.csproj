@@ -33,13 +33,20 @@
     <Compile Include="API\BeerApiCalls.cs" />
     <Compile Include="API\BreweryApiCalls.cs" />
     <Compile Include="Models\BeerDetailsModel.cs" />
-    <Compile Include="Models\breweries.cs" />
+    <Compile Include="Models\Breweries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\BreweriesPageViewModel.cs" />
     <Compile Include="Views\BeerPage.xaml.cs">
       <DependentUpon>BeerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BreweriesPage.xaml.cs">
+      <DependentUpon>BreweriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BreweryDetailPage.xaml.cs">
+      <DependentUpon>BreweryDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -97,6 +104,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\BeerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\BreweriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\BreweryDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

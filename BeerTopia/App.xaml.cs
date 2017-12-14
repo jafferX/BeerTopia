@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
 using BeerTopia.Views;
+using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace BeerTopia
 {
@@ -12,17 +14,22 @@ namespace BeerTopia
     {
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
 
-        protected override void OnInitialized()
+        protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("MainPage");
+			Debug.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Hello from app.xaml.cs");
+            await NavigationService.NavigateAsync("MainPage/NavigationPage/BreweriesPage");
         }
 
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<MainPage>();
-        }
+			Container.RegisterTypeForNavigation<NavigationPage>();
+
+			Container.RegisterTypeForNavigation<BreweriesPage>();
+			Container.RegisterTypeForNavigation<BeerPage>();
+		}
     }
 }
 

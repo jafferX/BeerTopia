@@ -10,11 +10,11 @@ using System.Collections.ObjectModel;
 
 namespace BeerTopia.API
 {
-    class BreweryApiCalls
+    public class BreweryApiCalls
     {
         ApiManager httpCall;
 
-        async void GetSampleBreweryList(ObservableCollection<DatumB> collection)
+        public async void GetSampleBreweryList(ObservableCollection<DatumB> collection)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
