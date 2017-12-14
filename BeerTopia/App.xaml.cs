@@ -18,7 +18,6 @@ namespace BeerTopia
         {
             InitializeComponent();
 
-			Debug.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Hello from app.xaml.cs");
             await NavigationService.NavigateAsync("MainPage/NavigationPage/BreweriesPage");
         }
 

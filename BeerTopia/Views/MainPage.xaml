@@ -1,17 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
 				  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-				  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
-				  prism:ViewModelLocator.AutowireViewModel="True" 
 				  x:Class="BeerTopia.Views.MainPage">
 	<MasterDetailPage.Master>
 		<ContentPage Title="Menu">
 			<ContentPage.Icon>
-				<OnPlatform x:TypeArguments="FileImageSource">
-					<OnPlatform.Platforms>
-						<On Platform="iOS, Android, macOS" Value="hamburger.png" />
-					</OnPlatform.Platforms>
-				</OnPlatform>
+				<OnPlatform x:TypeArguments="FileImageSource"
+							Android="hamburger.png" />
 			</ContentPage.Icon>
 			<Grid>
 				<Grid.RowDefinitions>
@@ -20,12 +15,6 @@
 				</Grid.RowDefinitions>
 				<StackLayout BackgroundColor="{StaticResource PrimaryDark}"
                              Padding="20">
-					<Label Text="{Binding UserName}"
-                           TextColor="{StaticResource NavigationText}"
-                           FontSize="Large"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Center"
-                           VerticalOptions="EndAndExpand"/>
 				</StackLayout>
 				<StackLayout Grid.Row="1">
 					<Button Text="Breweries"

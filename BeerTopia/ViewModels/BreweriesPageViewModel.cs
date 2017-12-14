@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace BeerTopia.ViewModels
 {
-    class BreweriesPageViewModel: BindableBase, INavigationAware
+    public class BreweriesPageViewModel: BindableBase, INavigationAware
     {
 		protected INavigationService _navigationService;
 		private BreweryApiCalls breweryCaller;
@@ -29,30 +29,25 @@ namespace BeerTopia.ViewModels
 			breweryCaller = new BreweryApiCalls();
 		}
 
-
 		public void OnNavigatedFrom(NavigationParameters parameters)
 		{
 		}
 
 		public void OnNavigatedTo(NavigationParameters parameters)
 		{
-
-			Debug.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ hello from breweriesPageViewModel");
-			breweryCaller.GetSampleBreweryList(Breweries);
-			Debug.WriteLine(Breweries);
-			Debug.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ hello from after api call breweriesPageViewModel");
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
+			//TODO: Add/Fix Api call here
+			//breweryCaller.GetSampleBreweryList(Breweries);
 		}
 
 		private async void OnBrewerySelectedCommandExecuted(DatumB brewer)
 		{
 			NavigationParameters navParams = new NavigationParameters();
 			navParams.Add("brewer", brewer);
-			//await _navigationService.NavigateAsync("TabbedPage?tab=BreweryDetailPage&tab=BreweryBeersPage",  navParams);
-			Debug.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Brewery selected command executed");
+			await _navigationService.NavigateAsync("TabbedPage?tab=BreweryDetailPage&tab=BreweryBeersPage",  navParams);
 		}
 	}
 }

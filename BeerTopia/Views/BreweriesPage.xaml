@@ -43,9 +43,6 @@
                                      Grid.Row="1">
 							<Label Text="{Binding Status}"
                                    FontSize="Small" />
-							<Label Text="{Binding Established,StringFormat='Since: {0:yyyy}'}"
-                                   FontSize="Small"
-                                   FontAttributes="Italic" />
 						</StackLayout>
 					</Grid>
 				</ViewCell>

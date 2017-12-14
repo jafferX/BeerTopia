@@ -20,20 +20,16 @@ namespace BeerTopia.ViewModels
         {
             _pageDialogService = pageDialogService;
 			_navigationService = navigationService;
-            //Title = Resources.MainPageTitle;
 
             NavigateCommand = new DelegateCommand<string>(OnNavigateCommandExecuted);
         }
 
-
 		public void OnNavigatedFrom(NavigationParameters parameters)
 		{
-			throw new NotImplementedException();
 		}
 
 		public void OnNavigatedTo(NavigationParameters parameters)
 		{
-			throw new NotImplementedException();
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)
