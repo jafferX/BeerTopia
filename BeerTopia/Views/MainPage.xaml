@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
 				  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				  x:Class="BeerTopia.Views.MainPage">
@@ -20,12 +20,9 @@
 					<Button Text="Breweries"
                             Command="{Binding NavigateCommand}"
                             CommandParameter="BreweriesPage"/>
-					<Button Text="Add Brewer"
+					<Button Text="Beer"
                             Command="{Binding NavigateCommand}"
-                            CommandParameter="AddBrewery" />
-					<Button Text="Add Beer"
-                            Command="{Binding NavigateCommand}"
-                            CommandParameter="AddBeer" />
+                            CommandParameter="BeerPage" />
 				</StackLayout>
 			</Grid>
 		</ContentPage>

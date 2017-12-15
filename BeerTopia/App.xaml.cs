@@ -25,7 +25,7 @@ namespace BeerTopia
         {
             Container.RegisterTypeForNavigation<MainPage>();
 			Container.RegisterTypeForNavigation<NavigationPage>();
-
+            Container.RegisterTypeForNavigation<BreweryDetailPage>();
 			Container.RegisterTypeForNavigation<BreweriesPage>();
 			Container.RegisterTypeForNavigation<BeerPage>();
 		}
