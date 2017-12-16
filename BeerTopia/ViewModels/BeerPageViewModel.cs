@@ -1,59 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Prism.Commands;
-using Prism.Events;
-using Prism.Logging;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
-using Prism.Services;
-using BeerTopia.Models;
-using Prism.Mvvm;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BeerTopia.Models;
+using Prism.Commands;
 using BeerTopia.API;
+using System.Diagnostics;
 
-namespace BeerDrinking.ViewModels
+namespace BeerTopia.ViewModels
 {
-    public class BeerPageViewModel : BindableBase, INavigationAware
+	public class BeerPageViewModel : BindableBase, INavigationAware
 	{
-        private BeerApiCalls beerCaller;
-        public ObservableCollection<Datum> Beer { get; set; }
-        private string _name;
-        public string Name
-        {
-            get { return _name; }
-            set { SetProperty(ref _name, value); }
-        }
+		protected INavigationService _navigationService;
+		private BeerApiCalls beerCaller;
+		public ObservableCollection<Datum> Beer { get; set; }
+		public DelegateCommand<Datum> BeerSelectedCommand { get; }
 
-        private string _style;
-        public string Style
-        {
-            get { return _style; }
-            set { SetProperty(ref _style, value); }
-        }
 
-       
-
-		public BeerPageViewModel()
+		public BeerPageViewModel(INavigationService navigationService)
 		{
+			_navigationService = navigationService;
 			Beer = new ObservableCollection<Datum>();
-            beerCaller = new BeerApiCalls();
+			beerCaller = new BeerApiCalls();
+			BeerSelectedCommand = new DelegateCommand<Datum>(OnBeerSelectedCommandExecuted);
+		}
+
+
+		private async void OnBeerSelectedCommandExecuted(Datum beer)
+		{
+			NavigationParameters navParams = new NavigationParameters();
+			navParams.Add("beer", beer);
+			await _navigationService.NavigateAsync("BeerDetailPage", navParams);
+		}
+
+		public void OnNavigatedFrom(NavigationParameters parameters)
+		{
+		
+		}
+
+		public void OnNavigatedTo(NavigationParameters parameters)
+		{
+		
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
-            beerCaller.GetSampleBeers(Beer);
-            //_name = Beer.Name;
-            //_style = Beer.Style.ToString();
+			beerCaller.GetSampleBeers(Beer);
+			
 		}
-
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            throw new NotImplementedException();
-        }
-    }
+	}
 }

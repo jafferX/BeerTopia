@@ -31,16 +31,19 @@ namespace BeerTopia.ViewModels
 
 		public void OnNavigatedFrom(NavigationParameters parameters)
 		{
+
 		}
 
 		public void OnNavigatedTo(NavigationParameters parameters)
 		{
+           
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
             
 			breweryCaller.GetSampleBreweryList(Breweries);
+           
 		}
 
 		private async void OnBrewerySelectedCommandExecuted(DatumB brewer)

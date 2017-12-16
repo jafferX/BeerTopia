@@ -19,10 +19,10 @@
 				<StackLayout Grid.Row="1">
 					<Button Text="Breweries"
                             Command="{Binding NavigateCommand}"
-                            CommandParameter="BreweriesPage"/>
+                            CommandParameter="NavigationPage/BreweriesPage"/>
 					<Button Text="Beer"
                             Command="{Binding NavigateCommand}"
-                            CommandParameter="BeerPage" />
+                            CommandParameter="NavigationPage/BeerPage" />
 				</StackLayout>
 			</Grid>
 		</ContentPage>

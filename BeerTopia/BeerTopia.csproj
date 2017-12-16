@@ -41,9 +41,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BreweriesPageViewModel.cs" />
-    <Compile Include="Views\BeerPage.xaml.cs">
-      <DependentUpon>BeerPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\BreweriesPage.xaml.cs">
       <DependentUpon>BreweriesPage.xaml</DependentUpon>
     </Compile>
@@ -56,12 +53,31 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\BreweryDetailPageViewModel.cs" />
     <Compile Include="ViewModels\BeerPageViewModel.cs" />
+    <Compile Include="Views\BeerPage.xaml.cs">
+      <DependentUpon>BeerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BeerDetailPage.xaml.cs">
+      <DependentUpon>BeerDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BeerDetailPageViewModel.cs" />
+    <Compile Include="Views\WelcomeScreen.xaml.cs">
+      <DependentUpon>WelcomeScreen.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BeerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BeerDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WelcomeScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -109,12 +125,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="FodyWeavers.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\BeerPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\BreweriesPage.xaml">

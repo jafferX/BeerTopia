@@ -5,6 +5,7 @@ using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace BeerTopia.ViewModels
 {
@@ -39,14 +40,8 @@ namespace BeerTopia.ViewModels
 
         private async void OnNavigateCommandExecuted(string pageName)
         {
-            try
-            {
-                await _navigationService.NavigateAsync($"NavigationPage/{pageName}");
-            }
-            catch (Exception ex)
-            {
-                await _pageDialogService.DisplayAlertAsync(ex.GetType().Name, ex.Message, "Ok");
-            }
+            Debug.WriteLine(pageName);
+            await _navigationService.NavigateAsync(pageName);
         }
     }
 }

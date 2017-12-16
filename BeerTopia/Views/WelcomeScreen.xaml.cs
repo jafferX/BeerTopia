@@ -2,9 +2,9 @@
 
 namespace BeerTopia.Views
 {
-    public partial class BeerPage : ContentPage
+    public partial class WelcomeScreen : ContentPage
     {
-        public BeerPage()
+        public WelcomeScreen()
         {
             InitializeComponent();
         }

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using BeerTopia.Models;
 
 using System.Collections.ObjectModel;
-
-
+using System.Diagnostics;
 
 namespace BeerTopia.API
 {
@@ -18,6 +17,7 @@ namespace BeerTopia.API
 
         public async void GetSampleBeers(ObservableCollection<Datum> observableCollection)
         {
+            observableCollection.Clear();
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
                 string.Format(
@@ -32,6 +32,7 @@ namespace BeerTopia.API
             for (int i = 0; i < beerData.Data.Length; i++)
             {
                 observableCollection.Add(beerData.Data[i]);
+              
             }
             
         }
