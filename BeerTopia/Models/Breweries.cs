@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Prism.Mvvm;
 
 namespace BeerTopia.Models
 {
@@ -31,13 +33,18 @@ namespace BeerTopia.Models
             public string Status { get; set; }
         }
 
-        public partial class DatumB
+    public partial class DatumB : BindableBase, INotifyPropertyChanged
         {
             [JsonProperty("id")]
             public string Id { get; set; }
 
-            [JsonProperty("name")]
-            public string Name { get; set; }
+        [JsonProperty("name")]
+        private string _name;
+        public string Name 
+        { 
+            get { return _name; } 
+            set{ SetProperty(ref _name, value); }
+        }
 
             [JsonProperty("nameShortDisplay")]
             public string NameShortDisplay { get; set; }

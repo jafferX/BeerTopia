@@ -1,4 +1,6 @@
-﻿using Prism.Commands; using Prism.Mvvm; using Prism.Navigation; using System; using System.Collections.Generic; using System.Linq; using BeerTopia.Models;  namespace BeerTopia.ViewModels {
+﻿using Prism.Commands; using Prism.Mvvm; using Prism.Navigation; using System; using System.Collections.Generic; using System.Linq; using BeerTopia.Models; using System.Diagnostics;
+
+namespace BeerTopia.ViewModels {
 	public class BreweryDetailPageViewModel : BindableBase, INavigationAware
 	{
 
@@ -22,7 +24,7 @@
 			get { return _description; }
 			set { SetProperty(ref _description, value); }
 		}
-
+        public DatumB Model { get; set; }
 		public BreweryDetailPageViewModel()
 		{
 
@@ -37,14 +39,11 @@
 
 		public void OnNavigatedTo(NavigationParameters parameters)
 		{
-			DatumB brewer = (BeerTopia.Models.DatumB)parameters["brewer"];
-			_name = brewer.Name;
-			_established = brewer.Established;
-			_description = brewer.Description;
+            
 		}
 
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
-			
+			Model = parameters.GetValue<DatumB>("brewer");             //_name = brewer.Name;             //_established = brewer.Established;             //_description = brewer.Description;             Debug.WriteLine("@@@@@@@@ @@@@@@@@@@@@@@@@@@@@@@@");
 		}
 	} } 
