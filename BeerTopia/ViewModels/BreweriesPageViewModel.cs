@@ -47,7 +47,7 @@ namespace BeerTopia.ViewModels
 		{
 			NavigationParameters navParams = new NavigationParameters();
 			navParams.Add("brewer", brewer);
-			await _navigationService.NavigateAsync("/MainPage/BreweriesPage/BreweryDetailPage",  navParams);
+			await _navigationService.NavigateAsync("BreweryDetailPage",  navParams);
 		}
 	}
 }
