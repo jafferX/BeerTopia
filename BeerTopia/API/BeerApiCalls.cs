@@ -16,7 +16,7 @@ namespace BeerTopia.API
     {
         ApiManager httpCall = new ApiManager();
 
-        async void GetSampleBeers(ObservableCollection<Datum> observableCollection)
+        public async void GetSampleBeers(ObservableCollection<Datum> observableCollection)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
@@ -36,7 +36,7 @@ namespace BeerTopia.API
             
         }
 
-        async void GetBeerByName(ObservableCollection<Datum> observableCollection, string userInput)
+        public async void GetBeerByName(ObservableCollection<Datum> observableCollection, string userInput)
         {
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(

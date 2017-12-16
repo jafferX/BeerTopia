@@ -39,7 +39,7 @@ namespace BeerTopia.ViewModels
 
 		public void OnNavigatingTo(NavigationParameters parameters)
 		{
-			
+            
 			breweryCaller.GetSampleBreweryList(Breweries);
 		}
 

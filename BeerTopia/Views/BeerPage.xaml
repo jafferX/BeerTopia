@@ -5,20 +5,51 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="BeerTopia.Views.BeerPage">
-	<ScrollView>
-		<StackLayout BackgroundColor="White"
-                     Padding="20">
-			<Label Text="{Binding Name}"
-                   FontSize="Large"
-                   FontAttributes="Bold" />
-			<Label Text="{Binding Style}" />
 
-			<BoxView BackgroundColor="{StaticResource PrimaryDark}"
-                     HeightRequest="1" />
+    <ListView ItemsSource="{Binding Beer}"
+              IsRefreshing="{Binding IsBusy}"
+              SeparatorColor="{StaticResource Primary}"
+              HasUnevenRows="True"
+              IsPullToRefreshEnabled="False">
+        <ListView.Behaviors>
+            <behaviors:EventToCommandBehavior Command="{Binding BrewerySelectedCommand}"
+                                              EventName="ItemTapped"
+                                              EventArgsParameterPath="Item" />
+        </ListView.Behaviors>
+        <ListView.Header>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="15,5"
+                          BackgroundColor="{StaticResource Accent}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-			<Label Text="{Binding Description}"
-                   LineBreakMode="WordWrap" />
-		</StackLayout>
-	</ScrollView>
+                        <Label Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               Margin="10,20,0,10"
+                               VerticalOptions="EndAndExpand"
+                               Grid.Column="1"
+                               Grid.Row="0" />
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="10,0,20,10"
+                                     VerticalOptions="StartAndExpand"
+                                     Grid.Column="1"
+                                     Grid.Row="1">
+                            <Label Text="{Binding Status}"
+                                   FontSize="Small" />
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 </ContentPage>

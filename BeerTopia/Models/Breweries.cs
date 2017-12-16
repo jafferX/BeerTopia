@@ -38,13 +38,8 @@ namespace BeerTopia.Models
             [JsonProperty("id")]
             public string Id { get; set; }
 
-        [JsonProperty("name")]
-        private string _name;
-        public string Name 
-        { 
-            get { return _name; } 
-            set{ SetProperty(ref _name, value); }
-        }
+            [JsonProperty("name")]
+            public string Name { get; set; }
 
             [JsonProperty("nameShortDisplay")]
             public string NameShortDisplay { get; set; }

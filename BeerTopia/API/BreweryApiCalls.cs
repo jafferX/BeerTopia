@@ -16,6 +16,7 @@ namespace BeerTopia.API
 
         public async void GetSampleBreweryList(ObservableCollection<DatumB> collection)
         {
+            collection.Clear();
             HttpClient client = httpCall.StartHTTP();
             var uri = new Uri(
                 string.Format(
