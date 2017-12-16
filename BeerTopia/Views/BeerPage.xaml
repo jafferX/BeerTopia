@@ -8,13 +8,22 @@
               IsRefreshing="{Binding IsBusy}"
               SeparatorColor="{StaticResource Primary}"
               HasUnevenRows="True"
-              IsPullToRefreshEnabled="False">
+              IsPullToRefreshEnabled="False"
+              x:Name="BeerList" >
         <ListView.Behaviors>
             <behaviors:EventToCommandBehavior Command="{Binding BeerSelectedCommand}"
                                               EventName="ItemTapped"
                                               EventArgsParameterPath="Item" />
         </ListView.Behaviors>
         <ListView.Header>
+            <Image>
+            <Image.Source>
+                <UriImageSource Uri="{Binding Labels.Icon.Small}"
+                    CacheValidity="14"
+                    CachingEnabled="true"
+                    />
+            </Image.Source>
+            </Image>
         </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
